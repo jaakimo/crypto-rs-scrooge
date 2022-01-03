@@ -50,8 +50,8 @@ const calculateBestBuySellDates = (
   for (let buyIndex = 0; buyIndex < pricesSorted.length; buyIndex++) {
     for (let sellIndex = pricesSorted.length - 1; sellIndex >= 0; sellIndex--) {
       if (pricesSorted[buyIndex][0] < pricesSorted[sellIndex][0]) {
-        const buyDate = new Date(pricesSorted[buyIndex][0] * 1000);
-        const sellDate = new Date(pricesSorted[sellIndex][0] * 1000);
+        const buyDate = new Date(pricesSorted[buyIndex][0]);
+        const sellDate = new Date(pricesSorted[sellIndex][0]);
         return {
           stonks: true,
           buyDate,

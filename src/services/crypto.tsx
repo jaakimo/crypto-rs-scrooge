@@ -10,24 +10,13 @@ type DataFromApi = {
   };
 };
 
-const timeStampToUnixFormat = ([timeStamp, value]: [number, number]): Data => [
-  timeStamp / 1000,
-  value,
-];
-
-const getCoinIds = async () => {
-  const config: AxiosRequestConfig = { httpsAgent: 'node' };
-  const response = await axios.get(`${uri}/coins/list`, config);
-  return response.data;
-};
-
 const getMarketByDateRange = async (
   coinId: string,
   currency: string,
-  values: DatesFormValues
+  dates: DatesFormValues
 ): Promise<MarketChart> => {
-  const unixStart = new Date(values.fromDate).getTime() / 1000;
-  const unixEnd = new Date(values.toDate).getTime() / 1000;
+  const unixStart = new Date(dates.fromDate).getTime() / 1000;
+  const unixEnd = new Date(dates.toDate).getTime() / 1000;
 
   const config: AxiosRequestConfig = {
     httpsAgent: 'node',
@@ -39,14 +28,13 @@ const getMarketByDateRange = async (
     config
   );
 
-  if (!data) {
-    throw new Error('Could not connect to API');
-  }
-
-  const prices = data.prices.map(timeStampToUnixFormat);
-  const marketCaps = data.market_caps.map(timeStampToUnixFormat);
-  const totalVolumes = data.total_volumes.map(timeStampToUnixFormat);
-  return { prices, totalVolumes, marketCaps };
+  return (
+    {
+      prices: data.prices,
+      totalVolumes: data.total_volumes,
+      marketCaps: data.market_caps,
+    } || 'Error: Could not fetch data from API'
+  );
 };
 
-export default { getCoinIds, getMarketByDateRange };
+export default { getMarketByDateRange };

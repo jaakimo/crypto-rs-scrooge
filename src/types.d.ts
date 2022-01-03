@@ -1,7 +1,7 @@
-interface MarketChart {
+type MarketChart = {
   prices: Data[];
   marketCaps: Data[];
   totalVolumes: Data[];
-}
+};
 
-type Data = [unixTimeStamp: number, value: number];
+type Data = [timeStampInMs: number, value: number];
