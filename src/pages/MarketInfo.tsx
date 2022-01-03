@@ -45,7 +45,7 @@ const MarketInfo = ({ data, coinId }: Props) => {
           {highestVolumeData ? (
             <p>
               {`${highestVolumeData[1].toFixed()}€`} <br />
-              {new Date(highestVolumeData[0]).toDateString()}
+              {new Date(highestVolumeData[0] * 1000).toDateString()}
             </p>
           ) : null}
 
