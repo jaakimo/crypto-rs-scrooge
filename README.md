@@ -2,7 +2,7 @@
 
 This front-end application was made in part for Vincit Rising Star program's pre-assignment. App displays metrics about Bitcoin market for a given date range using data provided by CryptoGecko [API](https://www.coingecko.com/en/api/documentation).
 
-Live preview available in [netlify]().
+Live preview available in [netlify](https://blissful-kowalevski-2c4954.netlify.app).
 
 Client requests for metrics for a given date range [as requested in the documentation](Vincit-Rising-Star-2021-Pre-assignment.pdf):
 
