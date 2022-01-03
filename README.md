@@ -1,5 +1,17 @@
 # crypto-rs-scrooge
 
+This front-end application was made in part for Vincit Rising Star program's pre-assignment. App displays metrics about Bitcoin market for a given date range using data provided by CryptoGecko [API](https://www.coingecko.com/en/api/documentation).
+
+Live preview available in [netlify]().
+
+Client requests for metrics for a given date range [as requested in the documentation](Vincit-Rising-Star-2021-Pre-assignment.pdf):
+
+- Longest bearish in days
+- Date of highest trading volume
+- Best dates to buy and sell
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
